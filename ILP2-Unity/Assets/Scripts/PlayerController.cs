@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    Rigidbody2D rBody;
+    Rigidbody2D rBody = new Rigidbody2D();
 
     [SerializeField]
-    float moveSpeed = 0;
+    float moveSpeed = 80;
+
+    //[SerializeField]
+    //float startSpeed = 1;
 
     [SerializeField]
     float turnRatio = 10;
@@ -20,11 +23,16 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        QualitySettings.maxQueuedFrames = 1;
     }
 
     // Update is called once per frame
     void Update()
+    {
+        Debug.Log("Player Speed: " + rBody.velocity.sqrMagnitude);
+    }
+
+    void FixedUpdate()
     {
         Move();
     }
@@ -71,18 +79,19 @@ public class PlayerController : MonoBehaviour
             //making it so movement speed changes depending on how far away mouse is
             //Debug.Log("Mouse Distance(sq): " + mouseVec.sqrMagnitude);
 
-            Debug.Log("Player Speed: " + rBody.velocity.sqrMagnitude);
             //preventing player from moving before facing towards the mouse if they are standing still
-            if (rBody.velocity.sqrMagnitude < 1) {//if player is not moving or barely moving
-                if (angleDiff >= -22.5 && angleDiff <= 22.5) {//if player is facing towards mouse already
+            if (rBody.velocity.sqrMagnitude < 10) {//if player is not moving or barely moving
+                if (angleDiff >= -30 && angleDiff <= 30) {//if player is facing towards mouse already
                     //Debug.Log("In Range");
                     moveTowardsMouse(mouseVec.sqrMagnitude);
                 }
-                //else
+                else {
                     //Debug.Log("OUT of Range");
+                }
             }
             else {//player is already moving
-                moveTowardsMouse(mouseVec.sqrMagnitude);
+                if (angleDiff >= -30 && angleDiff <= 30)
+                    moveTowardsMouse(mouseVec.sqrMagnitude);
             }
         }
 
@@ -91,12 +100,21 @@ public class PlayerController : MonoBehaviour
     void moveTowardsMouse(float mouseDistance)
     {
         if (mouseDistance > minPointerDistance) {//if mouse is too close, movement stops
-            float moveMagnitude = mouseDistance / 10;
-            moveMagnitude = moveMagnitude > 100 ? moveMagnitude = 100 : moveMagnitude;//capping max move multiplier
-
-            rBody.AddRelativeForce(new Vector2(0, moveSpeed), ForceMode2D.Force);
+            float moveMagnitude = mouseDistance / 5;
+            moveMagnitude = moveMagnitude > 2 ? moveMagnitude = 2 : moveMagnitude;//capping max move multiplier
+            //Debug.Log("Magnitude: " + moveMagnitude);
+            rBody.AddRelativeForce(new Vector2(0, moveSpeed * moveMagnitude), ForceMode2D.Force);
         }
     }
+
+    /*void startTowardsMouse(float mouseDistance)
+    {
+        if (mouseDistance > minPointerDistance) {//if mouse is too close, movement stops
+
+            rBody.AddRelativeForce(new Vector2(0, startSpeed), ForceMode2D.Impulse);
+            //rBody.velocity = new Vector2(0, moveSpeed);
+        }
+    }*/
 
     Vector3 getMousePos()
     {

@@ -238,9 +238,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rBody: {fileID: 63300331}
-  moveSpeed: 80
+  moveSpeed: 60
+  startSpeed: 2
   turnRatio: 10
-  minPointerDistance: 0.75
+  minPointerDistance: 0.25
 --- !u!1 &757664651
 GameObject:
   m_ObjectHideFlags: 0
