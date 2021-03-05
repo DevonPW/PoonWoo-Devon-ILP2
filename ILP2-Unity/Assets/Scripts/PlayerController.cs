@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             else {//player is already moving
-                if (angleDiff >= -30 && angleDiff <= 30)
+                //if (angleDiff >= -30 && angleDiff <= 30)
                     moveTowardsMouse(mouseVec.sqrMagnitude);
             }
         }
