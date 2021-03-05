@@ -217,7 +217,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 6
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -238,7 +238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rBody: {fileID: 63300331}
-  moveSpeed: 0
+  moveSpeed: 80
+  turnRatio: 10
+  minPointerDistance: 0.75
 --- !u!1 &757664651
 GameObject:
   m_ObjectHideFlags: 0

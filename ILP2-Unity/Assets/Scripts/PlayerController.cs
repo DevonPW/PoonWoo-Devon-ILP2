@@ -8,7 +8,14 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rBody;
 
     [SerializeField]
-    float moveSpeed = 1;
+    float moveSpeed = 0;
+
+    [SerializeField]
+    float turnRatio = 10;
+
+    [SerializeField]
+    float minPointerDistance = 0;
+    //minimum distance mouse pointer has to be from player in order to trigger movement
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +36,7 @@ public class PlayerController : MonoBehaviour
         //checking if left mouse button is held
         if (Input.GetMouseButton(0)) {
             //getting vector from player to mouse position
-            Vector3 mouseVec = new Vector3();
+            Vector2 mouseVec = new Vector2();
             mouseVec = getMousePos() - transform.position;
 
             //getting angle between player (x axis?) and mouse
@@ -46,29 +53,49 @@ public class PlayerController : MonoBehaviour
             else if (angleDiff < -180) {
                 angleDiff += 360;
             }
-            //angleDiff = Mathf.Abs(angleDiff) > 180 ? angleDiff - 360 : angleDiff;
-            Debug.Log("Angle Difference: " + angleDiff);
+            //Debug.Log("Angle Difference: " + angleDiff);
 
-            if (angleDiff >= 10 || angleDiff <= -10) {
-                transform.Rotate(0, 0, angleDiff / 100);
-            }
-            else {
-                transform.localEulerAngles = new Vector3(0, 0, rotAngle);
-            }
+            //Rotating player towards mouse
+            //if (angleDiff >= 10 || angleDiff <= -10) {
+            transform.Rotate(0, 0, angleDiff / turnRatio);
+            //}
+            //else {
+            //    transform.localEulerAngles = new Vector3(0, 0, rotAngle);
+            //}
 
             //making player 'follow' mouse
-            Vector2 moveForce = new Vector2();
-            moveForce.y = mouseVec.sqrMagnitude / 10;
+
+            //Vector2 moveForce = new Vector2();
+            //moveForce.y = mouseVec.sqrMagnitude / 10;
+
+            //making it so movement speed changes depending on how far away mouse is
+            //Debug.Log("Mouse Distance(sq): " + mouseVec.sqrMagnitude);
+
+            Debug.Log("Player Speed: " + rBody.velocity.sqrMagnitude);
+            //preventing player from moving before facing towards the mouse if they are standing still
+            if (rBody.velocity.sqrMagnitude < 1) {//if player is not moving or barely moving
+                if (angleDiff >= -22.5 && angleDiff <= 22.5) {//if player is facing towards mouse already
+                    //Debug.Log("In Range");
+                    moveTowardsMouse(mouseVec.sqrMagnitude);
+                }
+                //else
+                    //Debug.Log("OUT of Range");
+            }
+            else {//player is already moving
+                moveTowardsMouse(mouseVec.sqrMagnitude);
+            }
+        }
+
+    }
+
+    void moveTowardsMouse(float mouseDistance)
+    {
+        if (mouseDistance > minPointerDistance) {//if mouse is too close, movement stops
+            float moveMagnitude = mouseDistance / 10;
+            moveMagnitude = moveMagnitude > 100 ? moveMagnitude = 100 : moveMagnitude;//capping max move multiplier
 
             rBody.AddRelativeForce(new Vector2(0, moveSpeed), ForceMode2D.Force);
-
-
         }
-        if (Input.GetMouseButton(1)) {
-            
-
-        }
-
     }
 
     Vector3 getMousePos()
