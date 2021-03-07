@@ -63,10 +63,10 @@ public class EnemySpawner : MonoBehaviour
         }
 
         //creating enemy
-        Instantiate(Enemy, position, Quaternion.identity);
+        EnemyController spawnedEnemy = Instantiate(Enemy, position, Quaternion.identity);
 
         //giving enemy reference to player
-        Enemy.setRefs(player, gm);
+        spawnedEnemy.setRefs(player, gm);
 
     }
 }

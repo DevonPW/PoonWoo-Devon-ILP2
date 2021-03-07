@@ -1204,8 +1204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bd51d3e02ea81439ccd80b23b0b563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 1
-  spawnIncreaseRateInterval: 30
+  spawnInterval: 3
+  spawnIncreaseRateInterval: 20
   Enemy: {fileID: 377357961974338216, guid: 6c4fb9b3b2a464c4aa5331c05d6bf008, type: 3}
   player: {fileID: 63300328}
   gm: {fileID: 720408770}
