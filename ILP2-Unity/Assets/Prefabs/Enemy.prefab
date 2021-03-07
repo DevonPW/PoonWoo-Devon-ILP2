@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360bab73e7fbaab41b76f77924e3baa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRef: {fileID: 0}
   rBody: {fileID: -4123396101609832809}
   moveSpeed: 50
   turnRatio: 8
@@ -120,7 +119,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &-6584535788172297490
 CircleCollider2D:
   m_ObjectHideFlags: 0

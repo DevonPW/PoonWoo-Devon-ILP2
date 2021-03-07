@@ -33,9 +33,11 @@ public class GameManager : MonoBehaviour
     {
         UpdateScoreDisplay();
 
-        PlayHeartAnim();
+        if (numHearts >= 0) {
+            PlayHeartAnim();
+        }
 
-        if (numHearts <= 0) {
+        if (numHearts < 0) {
             GameOver();
         }
     }
@@ -67,7 +69,6 @@ public class GameManager : MonoBehaviour
 
         /*HeartIconAnimation  heartAnim = new HeartIconAnimation();
         heartAnim = (HeartIconAnimation) Hearts[numHearts].GetComponent("HeartIconAnimation");
-
         heartAnim.playAnimation();*/
 
         //Hearts[numHearts].GetComponent<HeartIconAnimation>().playAnimation();
