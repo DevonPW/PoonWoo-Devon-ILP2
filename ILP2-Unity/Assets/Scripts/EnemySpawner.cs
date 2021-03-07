@@ -11,15 +11,19 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     float spawnInterval;
 
+    float prevIncreaseRateTime = -1;
+
     [SerializeField]
-    GameObject Enemy;
+    float spawnIncreaseRateInterval;
 
+    [SerializeField]
+    EnemyController Enemy;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    GameObject player;
+
+    [SerializeField]
+    GameManager gm;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +35,13 @@ public class EnemySpawner : MonoBehaviour
     {
         if (Time.time - prevSpawnTime >= spawnInterval) {
             SpawnEnemy();
+        }
+    }
+
+    void checkIncreaseRate()
+    {
+        if (Time.time - prevIncreaseRateTime >= spawnIncreaseRateInterval) {
+            spawnInterval *= 0.9f;//reduce spawn interval by 10%
         }
     }
 
@@ -51,7 +62,11 @@ public class EnemySpawner : MonoBehaviour
             position = new Vector3(Random.Range(-10f, 10f), -5.5f, 0);
         }
 
+        //creating enemy
         Instantiate(Enemy, position, Quaternion.identity);
+
+        //giving enemy reference to player
+        Enemy.setRefs(player, gm);
 
     }
 }

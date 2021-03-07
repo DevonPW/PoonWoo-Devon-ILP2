@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     Text scoreText;
 
     [SerializeField]
-    int score = 0;
+    int score;
 
     int numHearts;
 
@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
         QualitySettings.maxQueuedFrames = 1;
 
         numHearts = Hearts.Length - 1;
+
+        score = 0;
     }
 
     // Update is called once per frame
@@ -46,6 +48,11 @@ public class GameManager : MonoBehaviour
         Hearts[numHearts].gameObject.SetActive(false);
         numHearts--;
         
+    }
+
+    public void UpdateScore()
+    {
+        score++;
     }
 
     void UpdateScoreDisplay()

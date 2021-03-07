@@ -32,6 +32,11 @@ public class PlayerData : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+
+    }
+
     void InvincTimeout()
     {
         if (Time.time- hitTime >= invincibleTime) {//reactivate hitbox
@@ -47,6 +52,13 @@ public class PlayerData : MonoBehaviour
         hitbox.enabled = false;
 
         hitTime = Time.time;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy") {
+            WasHit();
+        }
     }
 
 }
