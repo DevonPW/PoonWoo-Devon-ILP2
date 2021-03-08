@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     float minPointerDistance = 0;
     //minimum distance mouse pointer has to be from player in order to trigger movement
 
+    bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        if (isDead == false) {
+            Move();
+        }
 
         animator.SetFloat("Speed", rBody.velocity.magnitude);
     }
@@ -125,6 +129,12 @@ public class PlayerController : MonoBehaviour
     Vector3 getMousePos()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    public void Die()
+    {
+        animator.SetTrigger("Died");
+        isDead = true;
     }
 
     void GameOver()

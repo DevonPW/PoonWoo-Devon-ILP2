@@ -25,10 +25,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     GameManager gm;
 
+    void Start()
+    {
+        prevIncreaseRateTime = Time.time;
+    }
+
     // Update is called once per frame
     void Update()
     {
         checkSpawn();
+        checkIncreaseRate();
     }
 
     void checkSpawn()
@@ -41,7 +47,10 @@ public class EnemySpawner : MonoBehaviour
     void checkIncreaseRate()
     {
         if (Time.time - prevIncreaseRateTime >= spawnIncreaseRateInterval) {
-            spawnInterval *= 0.9f;//reduce spawn interval by 10%
+            spawnInterval *= 0.8f;//reduce spawn interval by 10% of it's current value
+            //spawnInterval = spawnInterval >= 0.2f ? spawnInterval - 0.3f : 0.2f;
+
+            prevIncreaseRateTime = Time.time;
         }
     }
 

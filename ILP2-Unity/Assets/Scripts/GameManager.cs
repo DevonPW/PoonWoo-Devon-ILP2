@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    Animator animator;
+    PlayerController player;
 
     //array of heart icons
     [SerializeField]
@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     int numHearts;
 
+    bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
         numHearts = Hearts.Length - 1;
 
         score = 0;
+
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -38,14 +42,14 @@ public class GameManager : MonoBehaviour
         if (numHearts >= 0) {
             PlayHeartAnim();
         }
-
         checkDead();
     }
 
     void checkDead()
     {
-        if (numHearts < 0) {
-            animator.SetTrigger("Died");
+        if (isDead == false && numHearts < 0) {
+            isDead = true;
+            player.Die();
         }
     }
 

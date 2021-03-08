@@ -610,7 +610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611818691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.333, z: 0}
+  m_LocalPosition: {x: 0, y: 0.329, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 63300330}
@@ -626,12 +626,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.22
 --- !u!114 &720408770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869f4ec412c06e0469a0e634122ff997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 63300333}
+  player: {fileID: 63300332}
   Hearts:
   - {fileID: 1910255986}
   - {fileID: 843235614}
@@ -873,9 +873,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.02}
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.345
 --- !u!1001 &1247784209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 3
-  spawnIncreaseRateInterval: 12
+  spawnIncreaseRateInterval: 6
   Enemy: {fileID: 377357961974338216, guid: 6c4fb9b3b2a464c4aa5331c05d6bf008, type: 3}
   player: {fileID: 63300328}
   gm: {fileID: 720408770}
