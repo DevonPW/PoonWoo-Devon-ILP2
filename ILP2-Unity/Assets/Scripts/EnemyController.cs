@@ -94,4 +94,18 @@ public class EnemyController : MonoBehaviour
             gm.UpdateScore();//will look into event system...
         }
     }
+
+   /* void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (gm.isDead == true && collision.gameObject.tag == "Player") {
+            Destroy(gameObject);//enemy is kill
+        }
+    }*/
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (gm.isDead == true && collision.gameObject.tag == "Player") {
+            Destroy(gameObject);//enemy is kill
+        }
+    }
 }

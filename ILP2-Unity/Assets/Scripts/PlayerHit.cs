@@ -20,18 +20,20 @@ public class PlayerHit : MonoBehaviour
 
     bool isHit = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (isHit == true) {
-            InvincTimeout();
+            if (manager.isDead == false) {
+                InvincTimeout();
+            }
+            else {
+                isHit = false;
+                gameObject.layer = LayerMask.NameToLayer("Default");
+            }
+
         }
+        Debug.Log(gameObject.layer);
     }
 
     void InvincTimeout()
@@ -56,7 +58,7 @@ public class PlayerHit : MonoBehaviour
         isHit = true;
 
         //change layer
-        gameObject.layer = LayerMask.NameToLayer("Enemies");
+        gameObject.layer = LayerMask.NameToLayer("PlayerHit");
 
         hitTime = Time.time;
     }
@@ -64,7 +66,9 @@ public class PlayerHit : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy") {
-            WasHit();
+            if (manager.isDead == false) {
+                WasHit();
+            }
         }
     }
 }

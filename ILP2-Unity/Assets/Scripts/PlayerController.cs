@@ -30,22 +30,7 @@ public class PlayerController : MonoBehaviour
     Collider2D atkHitbox;
 
     [SerializeField]
-    Collider2D atkHitbox2;
-
-    [SerializeField]
     Collider2D hitbox;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("Player Speed: " + rBody.velocity.sqrMagnitude);
-    }
 
     void FixedUpdate()
     {
@@ -146,7 +131,6 @@ public class PlayerController : MonoBehaviour
         isDead = true;
 
         //atkHitbox.enabled = false;
-        //atkHitbox2.enabled = false;
         //hitbox.enabled = false;
 
         Collider2D[] colliders = atkHitbox.GetComponents<Collider2D>();
