@@ -8,6 +8,8 @@ public class UITimer : MonoBehaviour
     float startTime;
     float currentTime;
 
+    bool keepTime = true;
+
     [SerializeField]
     Text timerText;
 
@@ -20,8 +22,15 @@ public class UITimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime = Time.time - startTime;
-        //updating timer display
-        timerText.text = currentTime.ToString("0.0");
+        if (keepTime == true) { 
+            currentTime = Time.time - startTime;
+            //updating timer display
+            timerText.text = currentTime.ToString("0.0") + "s";
+        }
+    }
+
+    public void playerDied()
+    {
+        keepTime = false;
     }
 }

@@ -29,6 +29,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Collider2D atkHitbox;
 
+    [SerializeField]
+    Collider2D atkHitbox2;
+
+    [SerializeField]
+    Collider2D hitbox;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -138,12 +144,21 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger("Died");
         isDead = true;
-        atkHitbox.enabled = false;
+
+        //atkHitbox.enabled = false;
+        //atkHitbox2.enabled = false;
+        //hitbox.enabled = false;
+
+        Collider2D[] colliders = atkHitbox.GetComponents<Collider2D>();
+
+        foreach (Collider2D collider in colliders) {
+            collider.enabled = false;
+        }
     }
 
     void GameOver()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadSceneAsync(2,LoadSceneMode.Additive);
     }
 
 }

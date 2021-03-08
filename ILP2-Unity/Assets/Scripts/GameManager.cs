@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     PlayerController player;
 
+    [SerializeField]
+    UITimer timer;
+
     //array of heart icons
     [SerializeField]
     HeartIconAnimation[] Hearts;
@@ -20,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     int numHearts;
 
-    bool isDead;
+    public bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
         if (isDead == false && numHearts < 0) {
             isDead = true;
             player.Die();
+            timer.playerDied();
         }
     }
 

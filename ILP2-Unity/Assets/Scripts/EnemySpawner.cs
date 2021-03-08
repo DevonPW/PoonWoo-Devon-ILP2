@@ -61,15 +61,23 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 position;
 
-        int randNum = Random.Range(0, 2);
+        int randNum = Random.Range(0, 4);
 
         if (randNum == 0) {
             //spawn at top of screen
-            position = new Vector3(Random.Range(-10f, 10f), 5.5f, 0);
+            position = new Vector3(Random.Range(-12.1f, 12.1f), -7.6f, 0);
+        }
+        else if (randNum == 1) {
+            //spawn at bottom of screen
+            position = new Vector3(Random.Range(-12.1f, 12.1f), -7.6f, 0);
+        }
+        else if (randNum == 2) {
+            //spawn at right of screen
+            position = new Vector3(12.1f, Random.Range(-7.6f, 7.6f), 0);
         }
         else {
-            //spawn at bottom of screen
-            position = new Vector3(Random.Range(-10f, 10f), -5.5f, 0);
+            //spawn at left of screen
+            position = new Vector3(-12.1f, Random.Range(-7.6f, -7.6f), 0);
         }
 
         //creating enemy

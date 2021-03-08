@@ -18,6 +18,8 @@ public class PlayerHit : MonoBehaviour
 
     float hitTime;
 
+    bool isHit = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class PlayerHit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hitbox.enabled == false) {
+        if (isHit == true) {
             InvincTimeout();
         }
     }
@@ -35,7 +37,9 @@ public class PlayerHit : MonoBehaviour
     void InvincTimeout()
     {
         if (Time.time - hitTime >= invincibleTime) {//reactivate hitbox
-            hitbox.enabled = true;
+            //hitbox.enabled = true;
+            isHit = false;
+            gameObject.layer = LayerMask.NameToLayer("Default");
             animator.SetBool("IsHit", false);
         }
     }
@@ -47,7 +51,12 @@ public class PlayerHit : MonoBehaviour
         animator.SetBool("IsHit", true);
 
         //deactivate hitbox
-        hitbox.enabled = false;
+        //hitbox.enabled = false;
+
+        isHit = true;
+
+        //change layer
+        gameObject.layer = LayerMask.NameToLayer("Enemies");
 
         hitTime = Time.time;
     }
