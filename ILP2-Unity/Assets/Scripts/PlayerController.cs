@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
     bool isDead = false;
 
+    [SerializeField]
+    Collider2D atkHitbox;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -135,6 +138,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger("Died");
         isDead = true;
+        atkHitbox.enabled = false;
     }
 
     void GameOver()

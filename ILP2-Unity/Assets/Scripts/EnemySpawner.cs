@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        prevSpawnTime = Time.time - 1;
         prevIncreaseRateTime = Time.time;
     }
 

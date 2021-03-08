@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master_Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 12
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: ca65227d2f198d24a9285adc248e4fac, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: dea6ff2032146dd4080cae7d739982ab, type: 3}
+  - {fileID: 21300000, guid: 23876a02efe7820478798072e99d034a, type: 3}
+  - {fileID: 21300000, guid: d6113a83f7582a84f9ddc1d4e8228805, type: 3}
+  - {fileID: 21300000, guid: 8729b654367e6914188647ebd6581c53, type: 3}
+  - {fileID: 21300000, guid: 21e7a79416f7b2d45a00cc3bfd191e18, type: 3}
+  - {fileID: 21300000, guid: bbf459e4cf474ef4ca976d8b518f3567, type: 3}
+  - {fileID: 21300000, guid: 4afa8ef4818c6734cb4bcb5b25552c0e, type: 3}
+  - {fileID: 21300000, guid: 5101c6b59dd37d843865573fe09fc654, type: 3}
+  - {fileID: 21300000, guid: fa89ce86f24a61c4f96cbd348d8f6dfa, type: 3}
+  - {fileID: 21300000, guid: c0570c8798d0f184c82c64aa9cd5a630, type: 3}
+  - {fileID: 21300000, guid: 0179b397e9c11d5499a46ca4c900d51f, type: 3}
+  - {fileID: 21300000, guid: 7d2cf9582915f324f98517a4e7d649f2, type: 3}
+  - {fileID: 21300000, guid: c99d9cc83462b95478b1291d89a95eed, type: 3}
+  - {fileID: 21300000, guid: b46efa396709d7240b087afa1e73c658, type: 3}
+  - {fileID: 21300000, guid: 2107aa5a4895fee4784a8629ed833678, type: 3}
+  - {fileID: 21300000, guid: 6ca2dccab5d29a440b33b16f2cef07e2, type: 3}
+  - {fileID: 21300000, guid: 40f27dfbdbf449b4a9f0e6b2bff0f08d, type: 3}
+  - {fileID: 21300000, guid: 0d9e79bc454fe7540bc1b0a5b3493e87, type: 3}
+  - {fileID: 21300000, guid: 10731a4e1b968d74b951fdea1e0d0422, type: 3}
+  - {fileID: 21300000, guid: 3498980fd8b37d840aa8684df2c44b23, type: 3}
+  - {fileID: 21300000, guid: baabbd2f834e5a740a40a99e465a35f4, type: 3}
+  - {fileID: 21300000, guid: 09bb526fea5ca234583f856c69aff2b8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Title
+  - move1
+  - White_default
+  - death0
+  - death1
+  - death2
+  - Enemy
+  - beeb
+  - hit3
+  - move2
+  - Circle
+  - hit2
+  - idle1
+  - idle0
+  - idle2
+  - background
+  - Heart
+  - hit1
+  - StartButton
+  - hit0
+  - move0
+  - idle3
+  m_Tag: Master_Atlas
+  m_IsVariant: 0
