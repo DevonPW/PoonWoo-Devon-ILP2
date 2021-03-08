@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
     void checkIncreaseRate()
     {
         if (Time.time - prevIncreaseRateTime >= spawnIncreaseRateInterval) {
-            spawnInterval *= 0.8f;//reduce spawn interval by 10% of it's current value
+            spawnInterval *= 0.85f;//reduce spawn interval by 15% of it's current value
             //spawnInterval = spawnInterval >= 0.2f ? spawnInterval - 0.3f : 0.2f;
 
             prevIncreaseRateTime = Time.time;

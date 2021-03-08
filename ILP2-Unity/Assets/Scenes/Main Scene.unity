@@ -413,7 +413,7 @@ Canvas:
   m_GameObject: {fileID: 222396540}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 757664653}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -633,7 +633,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.09}
   serializedVersion: 2
-  m_Radius: 0.22
+  m_Radius: 0.225
 --- !u!58 &611818694
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
-  m_Radius: 0.12
+  m_Radius: 0.125
 --- !u!114 &720408770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1357,7 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 3
-  spawnIncreaseRateInterval: 6
+  spawnIncreaseRateInterval: 7
   Enemy: {fileID: 377357961974338216, guid: 6c4fb9b3b2a464c4aa5331c05d6bf008, type: 3}
   player: {fileID: 63300328}
   gm: {fileID: 720408770}
