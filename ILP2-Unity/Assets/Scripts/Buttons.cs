@@ -10,8 +10,4 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
-    public void QuitButton()
-    {
-
-    }
 }

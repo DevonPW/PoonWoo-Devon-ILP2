@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    Animator animator;
+
     [SerializeField]
     Rigidbody2D rBody;
 
@@ -35,6 +39,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+
+        animator.SetFloat("Speed", rBody.velocity.magnitude);
     }
 
     void Move()
@@ -119,6 +125,11 @@ public class PlayerController : MonoBehaviour
     Vector3 getMousePos()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    void GameOver()
+    {
+        SceneManager.LoadScene(2);
     }
 
 }

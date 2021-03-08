@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    Animator animator;
+
     //array of heart icons
     [SerializeField]
     HeartIconAnimation[] Hearts;
@@ -37,8 +39,13 @@ public class GameManager : MonoBehaviour
             PlayHeartAnim();
         }
 
+        checkDead();
+    }
+
+    void checkDead()
+    {
         if (numHearts < 0) {
-            GameOver();
+            animator.SetTrigger("Died");
         }
     }
 
@@ -74,10 +81,5 @@ public class GameManager : MonoBehaviour
         //Hearts[numHearts].GetComponent<HeartIconAnimation>().playAnimation();
 
         Hearts[numHearts].playAnimation();
-    }
-
-    void GameOver()
-    {
-        SceneManager.LoadScene(2);
     }
 }

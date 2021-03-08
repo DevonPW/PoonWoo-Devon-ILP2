@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerHit : MonoBehaviour
 {
     [SerializeField]
+    Animator animator;
+
+    [SerializeField]
     GameManager manager;
 
     [SerializeField]
@@ -33,12 +36,15 @@ public class PlayerHit : MonoBehaviour
     {
         if (Time.time - hitTime >= invincibleTime) {//reactivate hitbox
             hitbox.enabled = true;
+            animator.SetBool("IsHit", false);
         }
     }
 
     void WasHit()
     {
         manager.SendMessage("PlayerHit");
+
+        animator.SetBool("IsHit", true);
 
         //deactivate hitbox
         hitbox.enabled = false;
